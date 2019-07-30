@@ -1,0 +1,16 @@
+***********************************************************************
+MATRICULAR ESTUDIANTES DE PRIMER SEMESTRE FECHA: 2018/7/15
+       PROGRAMA:  TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+***********************************************************************
+                                                                       
+                                                                       
+INICIA PROCESO DE MATRICULA PARA ESTUDIANTE 123456789 - JUAN JOSE MIELES USTARIZ
+***********************************************************************
+INICIA PROCESO DE MATRICULA PARA ESTUDIANTE 1065633143 - JEISSON  MANDON 
+***********************************************************************
+INICIA PROCESO DE MATRICULA PARA ESTUDIANTE 1234567 - DFGHJKL SDFGHJKLñ SDFGHJKL DFGHJKLñ
+***********************************************************************
+INICIA PROCESO DE MATRICULA PARA ESTUDIANTE 12345674 - EEEEEEEEE LLLLLLLL SDFGHJKLLLL MMMMMMM
+***********************************************************************
+INICIA PROCESO DE MATRICULA PARA ESTUDIANTE 76543 - DFGHJKL SDFGHJKLñ SDFGHJKL DFGHJKLñ
+***********************************************************************

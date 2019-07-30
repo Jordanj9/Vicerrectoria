@@ -1,0 +1,13 @@
+**********************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ASPIRANTES. FECHA: 2018/5/23
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ASPIRANTE 35678 dddddddd ddddddddd dddddddd dddddddd
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN PROCESOS CONTABLES
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 201814418678-244
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $544000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          

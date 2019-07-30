@@ -1,0 +1,17 @@
+**********************************************************************************
+PROCESO DE CIERRE MASIVO - CIERRE POR PROGRAMA. FECHA: 2018/8/9
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ESTUDIANTE 35678 - MARIA DEL PILAR PEREZ MARTINEZ
+[OK]  INFORMACION ESTUDIANTE ACTUALIZADA CON EXITO
+[OK]  INFORMACION DE MATRICULA ENVIADA AL HISTORICO CON EXITO
+[OK]  NO HAY HOMOLOGACIONES PARA EL ESTUDIANTE
+[OK]  EL ESTUDIANTE NO TIENE INGRESOS ESPECIALES
+[OK]  MATERIAS Y CALIFICACIONES PROCESADAS CON EXITO
+[OK]  NO HAY HOMOLOGACIONES PARA EL ESTUDIANTE
+[OK]  EL ESTUDIANTE NO TIENE INGRESOS ESPECIALES
+[OK]  MATERIAS ELIMINADAS CON EXITO
+[OK]  LA MATRICULA ACTUAL HA SIDO ELIMINADA CON EXITO
+[OK]  EL PERIODO HA SIDO CERRADO PARA EL ESTUDIANTE
+**********************************************

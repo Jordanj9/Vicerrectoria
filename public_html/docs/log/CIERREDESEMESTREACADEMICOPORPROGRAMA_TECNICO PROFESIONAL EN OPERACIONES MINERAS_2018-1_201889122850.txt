@@ -1,0 +1,8 @@
+**********************************************************************************
+PROCESO DE CIERRE MASIVO - CIERRE POR PROGRAMA. FECHA: 2018/8/9
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ESTUDIANTE 35678 - MARIA DEL PILAR PEREZ MARTINEZ
+[X]   EL ESTUDIANTE NO TIENE MATRICULA ACADEMICA ACTIVA O YA FUE PROCESADO
+**********************************************

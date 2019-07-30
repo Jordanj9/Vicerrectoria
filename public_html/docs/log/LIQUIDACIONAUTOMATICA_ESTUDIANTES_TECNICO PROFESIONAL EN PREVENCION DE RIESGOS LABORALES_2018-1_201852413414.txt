@@ -1,0 +1,12 @@
+******************************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ESTUDIANTES. FECHA: 2018/5/24
+******************************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ESTUDIANTE 1065660262 JORDAN JHONSSON CUADRO NEGRETE
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $69000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA DERECHOS COMPLEMENTARIOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          

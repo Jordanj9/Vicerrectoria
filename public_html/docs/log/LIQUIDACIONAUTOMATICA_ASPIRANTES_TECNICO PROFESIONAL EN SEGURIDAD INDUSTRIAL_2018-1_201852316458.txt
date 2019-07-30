@@ -1,0 +1,33 @@
+**********************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ASPIRANTES. FECHA: 2018/5/23
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ASPIRANTE 1234567 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 201810528567
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $340000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 12345674 eeeeeeeee llllllll sdfghjkllll mmmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 201810538567
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $340000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 76543 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 201810558567
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $340000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 762345 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 201810518467
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $340000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          

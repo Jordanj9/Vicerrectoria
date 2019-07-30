@@ -1,0 +1,26 @@
+**********************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ASPIRANTES. FECHA: 2018/5/23
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ASPIRANTE 1234567 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 12345674 eeeeeeeee llllllll sdfghjkllll mmmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 76543 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 762345 dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+EL PROGRAMA NO TIENE ASPIRANTES ADMITIDOS PARA REALIZAR EL PROCESO DE LIQUIDACIÓN

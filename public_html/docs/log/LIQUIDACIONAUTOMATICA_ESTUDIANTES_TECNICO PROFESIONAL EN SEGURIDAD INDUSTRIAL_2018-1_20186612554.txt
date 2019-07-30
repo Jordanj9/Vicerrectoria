@@ -1,0 +1,40 @@
+******************************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ESTUDIANTES. FECHA: 2018/6/6
+******************************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ESTUDIANTE 123456789 JUAN JOSE MIELES USTARIZ
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $514000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA OTROS DERECHOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ESTUDIANTE 1065633143 JEISSON  MANDON 
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $514000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA OTROS DERECHOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ESTUDIANTE 1234567 DFGHJKL SDFGHJKLñ SDFGHJKL DFGHJKLñ
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $514000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA OTROS DERECHOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ESTUDIANTE 12345674 EEEEEEEEE LLLLLLLL SDFGHJKLLLL MMMMMMM
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $514000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA OTROS DERECHOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ESTUDIANTE 76543 DFGHJKL SDFGHJKLñ SDFGHJKL DFGHJKLñ
+PROGRAMA ESTUDIANTE: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $514000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA OTROS DERECHOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          

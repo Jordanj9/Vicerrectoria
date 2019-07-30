@@ -1,0 +1,17 @@
+***********************************************************************
+LLAMADO AUTOMÁTICO DE ASPIRANTES (PROCESO DE ADMISIÓN) FECHA: 2018/5/11
+***********************************************************************
+                                                                       
+                                                                       
+ASPIRANTE=> DOC: 3456789 NOMBRES: mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES PUESTO: 1
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABO FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      
+ASPIRANTE=> DOC: 34567892 NOMBRES: mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES PUESTO: 2
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABO FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      

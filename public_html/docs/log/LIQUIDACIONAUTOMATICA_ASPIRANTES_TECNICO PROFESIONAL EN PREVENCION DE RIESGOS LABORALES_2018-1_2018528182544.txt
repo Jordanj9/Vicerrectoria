@@ -1,0 +1,21 @@
+**********************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ASPIRANTES. FECHA: 2018/5/28
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ASPIRANTE 3456789 mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 20181-5
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $69000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA DERECHOS COMPLEMENTARIOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 34567892 mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES
+FORMULARIO DE INSCRIPCIÓN ACTUALIZADO CON REFERENCIA DE PAGO: 20181-6
+LIQUIDACIÓN GENERADA CON EXITO - TOTAL LIQUIDADO: $69000
+EL CONCEPTO DE MATRÍCULA DERECHOS DE MATRICULA HA SIDO ALMACENADO CON EXITO [OK]
+EL CONCEPTO DE MATRÍCULA DERECHOS COMPLEMENTARIOS HA SIDO ALMACENADO CON EXITO [OK]
+******************************************************************************************
+                                                                                          

@@ -1,0 +1,29 @@
+***********************************************************************
+LLAMADO AUTOMÁTICO DE ASPIRANTES (PROCESO DE ADMISIÓN) FECHA: 2018/5/11
+***********************************************************************
+                                                                       
+                                                                       
+ASPIRANTE=> DOC: 1234567 NOMBRES: dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL PUESTO: 1
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      
+ASPIRANTE=> DOC: 12345674 NOMBRES: eeeeeeeee llllllll sdfghjkllll mmmmmmm
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL PUESTO: 2
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      
+ASPIRANTE=> DOC: 76543 NOMBRES: dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL PUESTO: 3
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      
+ASPIRANTE=> DOC: 762345 NOMBRES: dfghjkl sdfghjklñ sdfghjkl dfghjklñ
+PROGRAMA ASPIRA: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL PUESTO: 4
+PROGRAMA ADMITIDO: TECNICO PROFESIONAL EN SEGURIDAD INDUSTRIAL FECHA ADMISIÓN: 2018/5/11 ESTADO ADMISIÓN: ADMITIDO
+CONVOCATORIA ACTUALIZADA...
+**********************************************************************************************************************
+                                                                                                                      

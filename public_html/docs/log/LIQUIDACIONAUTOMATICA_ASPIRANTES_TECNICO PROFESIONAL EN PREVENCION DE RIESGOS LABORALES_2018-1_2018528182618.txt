@@ -1,0 +1,16 @@
+**********************************************************************************
+PROCESO DE LIQUIDACIÓN MASIVO - LIQUIDACIÓN ASPIRANTES. FECHA: 2018/5/28
+**********************************************************************************
+                                                                        
+                                                                        
+PROCESANDO ASPIRANTE 3456789 mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+PROCESANDO ASPIRANTE 34567892 mmmmmmm mmmmmmmm mmmmmm mmmmmm
+PROGRAMA ASPIRANTE: TECNICO PROFESIONAL EN PREVENCION DE RIESGOS LABORALES
+EL ASPIRANTE YA TIENE LIQUIDACION GENERADA
+******************************************************************************************
+                                                                                          
+EL PROGRAMA NO TIENE ASPIRANTES ADMITIDOS PARA REALIZAR EL PROCESO DE LIQUIDACIÓN

@@ -1,0 +1,218 @@
+<?php $__env->startSection('content'); ?>
+<div class="panel box-shadow-none content-header">
+    <div class="panel-body">
+        <div class="col-md-12">
+            <h3 class="animated fadeInLeft">Académico - Gestión de Docentes</h3>
+            <p class="animated fadeInDown">
+                <a href="<?php echo e(route('inicio')); ?>">Inicio</a> <span class="fa-angle-right fa"></span><a href="<?php echo e(route('admin.academico')); ?>"> Módulo Académico </a><span class="fa-angle-right fa"></span><a href="<?php echo e(route('admin.academico')); ?>"> Recursos Académicos </a><span class="fa-angle-right fa"></span> Docentes
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>MENÚ DOCENTES</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="alert alert-success alert-raised alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Detalles: </strong> Contiene la información de los Docentes.
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6" style="margin-top: 30px;">
+                    <a href="<?php echo e(route('pnaturales.create')); ?>" class="btn ripple btn-3d btn-primary">
+                        <div>
+                            <span>Crear Nuevo Docente</span>
+                            <span class="ink animate" style="height: 87px; width: 87px; top: -37.5px; left: 53.5px;"></span></div>
+                    </a>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>MODIFICACIÓN Y CONSULTA DE DOCENTES</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label class="control-label">Identificación del docente a Consultar</label>
+                                <?php echo Form::text('id',null,['class'=>'form-control','placeholder'=>'Escriba la identificación a consultar','id'=>'id']); ?>
+
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">Traer Docente</label>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" onclick="getPersona()">Traer Docente</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Seleccione Docente</label>
+                                <select id='personanatural_id' class='form-control' onchange="mostrar()" required='required' name='personanatural_id'></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <?php echo Form::text('identificacion',null,['class'=>'form-control','placeholder'=>'Escriba el número de identificación del usuario, con éste tendrá acceso al sistema','required','id'=>'identificacion','disabled'=>'disabled']); ?>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <?php echo Form::text('nombres',null,['class'=>'form-control','placeholder'=>'Escriba los nombres del usuario','required','id'=>'txt_nombres','disabled'=>'disabled']); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <?php echo Form::text('apellidos',null,['class'=>'form-control','placeholder'=>'Escriba los apellidos del usuario','required','id'=>'txt_apellidos','disabled'=>'disabled']); ?>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <?php echo Form::email('email',null,['class'=>'form-control','placeholder'=>'Escriba el correo electrónico del usuario','required','id'=>'txt_email','disabled'=>'disabled']); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <button class='btn btn-sm btn-success btn-block' id="btn1">Consultar</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class='btn btn-sm btn-success btn-block' id="btn2">Ir a Modificar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-heading">
+            <h4>LISTADO DE DOCENTES</h4>
+        </div>
+        <div class="panel-body">
+            <div class="responsive-table">
+                <table id="tabla" class="table table-hover table-responsive table-bordered table-condensed" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Nombre</th>
+                            <th>Celular</th>
+                            <th>Dirección</th>
+                            <th>Departamento</th>
+                            <th>Facultad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $__currentLoopData = $docentes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                            <td><?php echo e($i->persona->tipodoc->abreviatura.":".$i->persona->numero_documento); ?></td>
+                            <td><?php echo e($i->primer_nombre." ".$i->segundo_nombre." ".$i->primer_apellido." ".$i->segundo_apellido); ?></td>
+                            <td><?php echo e($i->persona->celular); ?></td>
+                            <td><?php echo e($i->persona->direccion); ?></td>
+                            <?php if($i->departamento_id == null): ?>
+                            <td>SIN DEPARTAMENTO</td>
+                            <td>SIN FACULTAD</td>
+                            <?php else: ?>
+                            <td><?php echo e($i->departamento->nombre); ?></td>
+                            <td><?php echo e($i->departamento->facultad->nombre); ?></td>
+                            <?php endif; ?>
+                            <td>
+                                <a href="<?php echo e(route('pnaturales.delete',$i->id)); ?>" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar Docente"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#tabla').DataTable();
+    });
+    
+    $("#btn1").click(function (e) {
+        e.preventDefault();
+        var id = $("#personanatural_id").val();
+        window.location = url + "academico/pnaturales/" + id;
+    });
+
+    $("#btn2").click(function (e) {
+        e.preventDefault();
+        var id = $("#personanatural_id").val();
+        window.location = url + "academico/pnaturales/" + id + "/edit";
+    });
+
+
+    var vect = null;
+
+    function getPersona() {
+        var id = $("#id").val();
+        if (id.length === 0) {
+            notify('Alerta', 'Debe ingresar identificación para continuar...', 'warning');
+        } else {
+            $.ajax({
+                type: 'GET',
+                url: url + "academico/pnaturales/" + id + "/personaNaturals",
+                data: {},
+            }).done(function (msg) {
+                var m = JSON.parse(msg);
+                if (m.error === "NO") {
+                    $('#personanatural_id option').each(function () {
+                        $(this).remove();
+                    });
+                    vect = m.data1;
+                    $("#personanatural_id").append("<option value='0'>-- Seleccione una opción --</option>");
+                    $.each(m.data2, function (index, item) {
+                        $("#personanatural_id").append("<option value='" + index + "'>" + item + "</option>");
+                    });
+                } else {
+                    notify('Atención', m.msg, 'error');
+                    $("#identificacion").val("");
+                    $("#txt_nombres").val("");
+                    $("#txt_apellidos").val("");
+                    $("#txt_email").val("");
+                    $('#personanatural_id option').each(function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        }
+    }
+
+    function mostrar() {
+        var id = $("#personanatural_id").val();
+        $.each(vect, function (index, item) {
+            if (item.id == id) {
+                $("#identificacion").val(item.identificacion);
+                $("#txt_nombres").val(item.nombres);
+                $("#txt_apellidos").val(item.apellidos);
+                $("#txt_email").val(item.mail);
+            }
+        });
+    }
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
