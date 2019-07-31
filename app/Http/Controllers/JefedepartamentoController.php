@@ -7,6 +7,7 @@ use App\Http\Requests\JefedepartamentoRequest;
 use App\Jefedepartamento;
 use App\Personanatural;
 use App\Facultad;
+use App\Docenteacademico;
 use App\Auditoriaevaluaciona;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,20 @@ class JefedepartamentoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $jefes = Jefedepartamento::all();
+        $jefesdoc = Jefedepartamento::all();
+        $jefes = null;
+        if ($jefesdoc != null) {
+            foreach ($jefesdoc as $i) {
+                $o = null;
+                $je = Docenteacademico::find($i->docentejefe);
+                $o["id"] = $i->id;
+                $o["jefe"] = $je->personanatural->primer_nombre . " " . $je->personanatural->segundo_nombre . " " . $je->personanatural->primer_apellido . " " . $je->personanatural->segundo_apellido;
+                $o["docente"] = $i->docenteacademico->personanatural->primer_nombre . " " . $i->docenteacademico->personanatural->segundo_nombre . " " . $i->docenteacademico->personanatural->primer_apellido . " " . $i->docenteacademico->personanatural->segundo_apellido;
+                $o["fi"] = $i->fechainicio;
+                $o["ff"] = $i->fechafin;
+                $jefes[] = $o;
+            }
+        }
         return view('evaluacion_academica.jefe_departamento.list')
                         ->with('location', 'menu-evaluacion-auto-hetero')
                         ->with('jefes', $jefes);
@@ -31,8 +45,17 @@ class JefedepartamentoController extends Controller {
      */
     public function create() {
         $facultad = Facultad::all()->pluck('nombre', 'id');
+        $docentes = Docenteacademico::all();
+        $p2 = null;
+        if (count($docentes) > 0) {
+            foreach ($docentes as $item) {
+                $pn = $item->personanatural;
+                $p2[$item->pege] = $pn->persona->numero_documento . ": " . $pn->primer_nombre . " " . $pn->segundo_nombre . " " . $pn->primer_apellido . " " . $pn->segundo_apellido . " - DEPARTAMENTO: " . $item->personanatural->departamento->nombre . " - CARGO: " . $item->cargo->nombre;
+            }
+        }
         return view('evaluacion_academica.jefe_departamento.create')
                         ->with('location', 'menu-evaluacion-auto-hetero')
+                        ->with('docentes', $p2)
                         ->with('facultad', $facultad);
     }
 
@@ -47,9 +70,9 @@ class JefedepartamentoController extends Controller {
         foreach ($jefe->attributesToArray() as $key => $value) {
             $jefe->$key = strtoupper($value);
         }
-        $existe = Jefedepartamento::where('departamento_id', $jefe->departamento_id)->get();
+        $existe = Jefedepartamento::where('docenteacademico_pege', $jefe->docenteacademcio_pege)->get();
         if (count($existe) > 0) {
-            flash("El Departamento <strong>" . $jefe->departamento->nombre . "</strong> ya cuenta con jefe.")->warning();
+            flash("El Docente <strong>" . $jefe->docenteacademico->personanatural->primer_nombre . " " . $jefe->docenteacademico->personanatural->primer_apellido . "</strong> ya cuenta con jefe.")->warning();
             return redirect()->route('jefedepartamento.create');
         }
         $result = $jefe->save();
@@ -58,22 +81,17 @@ class JefedepartamentoController extends Controller {
             $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "INSERTAR";
-            $str = "CREACIÓN DE JEFE DE DEPARTAMENTO. DATOS: ";
+            $str = "CREACIÓN DE JEFE. DATOS: ";
             foreach ($jefe->attributesToArray() as $key => $value) {
-                if ($key == 'personanatural_id') {
-                    $str = $str . ", " . $key . ": " . $value . ", personanatural:" . $jefe->personanatural->primer_apellido . " " . $jefe->personanatural->primer_nombre;
-                } else if ($key == 'departamento_id') {
-                    $str = $str . ", " . $key . ": " . $value . ", departamento:" . $jefe->departamento->nombre;
-                } else {
-                    $str = $str . ", " . $key . ": " . $value;
-                }
+                $str = $str . ", " . $key . ": " . $value;
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("El jefe de departamento <strong>" . $jefe->personanatural->primer_nombre . " " . $jefe->personanatural->primer_apellido . "</strong> almacenado de forma exitosa!")->success();
+            $j = Docenteacademico::find($jefe->docentejefe);
+            flash("El jefe <strong>" . $j->personanatural->primer_nombre . " " . $j->personanatural->primer_apellido . "</strong> fue asignado de forma exitosa!")->success();
             return redirect()->route('jefedepartamento.index');
         } else {
-            flash("El jefe de departamento <strong>" . $jefe->personanatural->rimer_nombre . " " . $jefe->personanatural->primer_apellido . "</strong> no pudo ser almacenado. Error: " . $result)->error();
+            flash("El jefe <strong>" . $j->personanatural->rimer_nombre . " " . $j->personanatural->primer_apellido . "</strong> no pudo ser asignado. Error: " . $result)->error();
             return redirect()->route('jefedepartamento.index');
         }
     }
@@ -170,22 +188,17 @@ class JefedepartamentoController extends Controller {
             $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "ELIMINAR";
-            $str = "ELIMINACION DE JEFE DE DEPARTAMENTO. DATOS: ";
+            $str = "ELIMINACION DE JEFE. DATOS: ";
             foreach ($jefe->attributesToArray() as $key => $value) {
-                if ($key == 'personanatural_id') {
-                    $str = $str . ", " . $key . ": " . $value . ", personanatural:" . $jefe->personanatural->primer_apellido . " " . $jefe->personanatural->primer_nombre;
-                } else if ($key == 'departamento_id') {
-                    $str = $str . ", " . $key . ": " . $value . ", programa:" . $jefe->departamento->nombre;
-                } else {
                     $str = $str . ", " . $key . ": " . $value;
-                }
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("El jefe de departamento <strong>" . $jefe->personanatural->primer_nombre . " " . $jefe->personanatural->primer_apellido . "</strong> fue eliminado de forma exitosa!")->success();
+             $j = Docenteacademico::find($jefe->docentejefe);
+            flash("El jefe <strong>" . $j->personanatural->primer_nombre . " " . $j->personanatural->primer_apellido . "</strong> fue eliminado de forma exitosa!")->success();
             return redirect()->route('jefedepartamento.index');
         } else {
-            flash("El jefe de departamento <strong>" . $jefe->personanatural->primer_nombre . " " . $jefe->personanatural->primer_apellido . "</strong> no pudo ser eliminado. Error: " . $result)->error();
+            flash("El jefe <strong>" . $j->personanatural->primer_nombre . " " . $j->personanatural->primer_apellido . "</strong> no pudo ser eliminado. Error: " . $result)->error();
             return redirect()->route('jefedepartamento.index');
         }
 //        }

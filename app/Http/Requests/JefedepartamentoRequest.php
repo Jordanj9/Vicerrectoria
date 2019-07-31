@@ -24,8 +24,6 @@ class JefedepartamentoRequest extends FormRequest {
         return [
             'fechainicio' => 'required',
             'fechafin' => 'required',
-            'personanatural_id' => 'required',
-            'departamento_id' => 'required'
         ];
     }
 

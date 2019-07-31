@@ -60,10 +60,6 @@ class Personanatural extends Model {
         return $this->hasMany('App\Estudiante');
     }
 
-    public function jefedepartamentos() {
-        return $this->hasMany('App\Jefedepartamento');
-    }
-
     public function docenteacademicos() {
         return $this->hasMany('App\Docenteacademico');
     }

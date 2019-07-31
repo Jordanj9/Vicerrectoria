@@ -1,11 +1,10 @@
-@extends('layouts.admin')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="panel box-shadow-none content-header">
     <div class="panel-body">
         <div class="col-md-12">
             <h3 class="animated fadeInLeft">Evaluación Académica - Aplicar Evaluación</h3>
             <p class="animated fadeInDown">
-                <a href="{{route('inicio')}}">Inicio</a> <span class="fa-angle-right fa"></span> <a href="{{route('admin.evaluacionautohetero')}}"> Módulo Evaluación Académica</a> <span class="fa-angle-right fa"></span> <a href="{{route('aplicaciondocente.inicio')}}"> Aplicar Evaluación</a> <span class="fa-angle-right fa"></span> Realizar Exámen
+                <a href="<?php echo e(route('inicio')); ?>">Inicio</a> <span class="fa-angle-right fa"></span> <a href="<?php echo e(route('admin.evaluacionautohetero')); ?>"> Módulo Evaluación Académica</a> <span class="fa-angle-right fa"></span> <a href="<?php echo e(route('aplicaciondocente.inicio')); ?>"> Aplicar Evaluación</a> <span class="fa-angle-right fa"></span> Realizar Exámen
             </p>
         </div>
     </div>
@@ -34,9 +33,9 @@
                                 <th>Período</th>
                             </tr>
                             <tr>
-                                <td>{{$pn->persona->numero_documento}}</td>
-                                <td>{{$nombredoc}}</td>  
-                                <td>{{$periodo->anio." - ".$periodo->periodo}}</td>
+                                <td><?php echo e($pn->persona->numero_documento); ?></td>
+                                <td><?php echo e($nombredoc); ?></td>  
+                                <td><?php echo e($periodo->anio." - ".$periodo->periodo); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -47,8 +46,8 @@
                                 <th>Evaluación</th>
                             </tr>
                             <tr>
-                                <td>{{$nombredoc}}</td>  
-                                <td>{{$e->nombre}}</td>
+                                <td><?php echo e($nombredoc); ?></td>  
+                                <td><?php echo e($e->nombre); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -67,27 +66,28 @@
                                     <th>Valor Cualitativo</th>
                                     <th>Rango Cuantitativo</th>
                                 </tr>
-                                @foreach($eval as $ev)
+                                <?php $__currentLoopData = $eval; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ev): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$ev->acronimo}}</td>
-                                    <td>{{$ev->descripcion}}</td>
-                                    <td>{{$ev->valor_cualitativo}}</td>  
-                                    <td>{{$ev->valor_cuat1." - ".$ev->valor_cuat2}}</td>
+                                    <td><?php echo e($ev->acronimo); ?></td>
+                                    <td><?php echo e($ev->descripcion); ?></td>
+                                    <td><?php echo e($ev->valor_cualitativo); ?></td>  
+                                    <td><?php echo e($ev->valor_cuat1." - ".$ev->valor_cuat2); ?></td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                {!! Form::open(['route'=>'aplicaciondocente.guardarevaluaciondocente','method'=>'POST','class'=>'form-horizontal form-label-left'])!!}
-                <input type="hidden" name="docente_pegea" value="{{$da}}" />
-                <input type="hidden" name="docente_pegeq" value="{{$docenteacademico->pege}}" />
-                <input type="hidden" name="personanaturala" value="{{$pn->id}}" />
-                <input type="hidden" name="personanaturalq" value="{{$docenteacademico->pege}}" />
-                <input type="hidden" name="periodoacademico_id" value="{{$periodo->id}}" />
-                <input type="hidden" name="evaluacionaah_id" value="{{$e->id}}" />
+                <?php echo Form::open(['route'=>'aplicaciondocente.guardarevaluaciondocente','method'=>'POST','class'=>'form-horizontal form-label-left']); ?>
+
+                <input type="hidden" name="docente_pegea" value="<?php echo e($pn->id); ?>" />
+                <input type="hidden" name="docente_pegeq" value="<?php echo e($docenteacademico->pege); ?>" />
+                <input type="hidden" name="personanaturala" value="<?php echo e($pn->id); ?>" />
+                <input type="hidden" name="personanaturalq" value="<?php echo e($docenteacademico->pege); ?>" />
+                <input type="hidden" name="periodoacademico_id" value="<?php echo e($periodo->id); ?>" />
+                <input type="hidden" name="evaluacionaah_id" value="<?php echo e($e->id); ?>" />
                 <div class="responsive-table panel box-v1">
-                    <h4>{{$e->nombre}}</h4>
+                    <h4><?php echo e($e->nombre); ?></h4>
                     <table class="table table-hover table-responsive table-bordered table-condensed" width="100%" cellspacing="0">
                         <tbody>
                             <tr class="info">
@@ -95,31 +95,34 @@
                                 <th>Criterio</th>
                                 <th>Valor</th>
                             </tr>
-                            @foreach($e->evaluacionindicadors as $i)
+                            <?php $__currentLoopData = $e->evaluacionindicadors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td>{{$i->indicador->indicador}}</td>
-                                <td>{{$i->indicador->criterioevaluacion->nombre}}</td>
-                                <td><input type="number" accept="text" min="10" max="100" required="required" class="form-control" name="indicador_{{$i->id}}" /></td>
+                                <td><?php echo e($i->indicador->indicador); ?></td>
+                                <td><?php echo e($i->indicador->criterioevaluacion->nombre); ?></td>
+                                <td><input type="number" accept="text" min="10" max="100" required="required" class="form-control" name="indicador_<?php echo e($i->id); ?>" /></td>
                             </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        {!! Form::submit('Enviar Evaluación',['class'=>'btn btn-3d btn-success']) !!}
+                        <?php echo Form::submit('Enviar Evaluación',['class'=>'btn btn-3d btn-success']); ?>
+
                     </div>
                 </div>
-                {!! Form::close() !!}
+                <?php echo Form::close(); ?>
+
             </div>
         </div>
     </div>
 </div>
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 <script type="text/javascript">
     $(document).ready(function () {
     });
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

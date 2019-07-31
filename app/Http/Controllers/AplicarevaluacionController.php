@@ -487,7 +487,7 @@ class AplicarevaluacionController extends Controller {
             if ($d !== null) {
                 $pn = Personanatural::where('persona_id', $d->pege)->first();
                 if ($pn !== null) {
-                    $docente[$pn->id] = $pn->primer_nombre . " " . $pn->segundo_nombre . " " . $pn->primer_apellido . " " . $pn->segundo_apellido . "  -  DOCENTE DESDE: " . $d->created_at;
+                    $docente[$d->pege] = $pn->primer_nombre . " " . $pn->segundo_nombre . " " . $pn->primer_apellido . " " . $pn->segundo_apellido . "  -  DOCENTE DESDE: " . $d->created_at;
                 }
             }
         }
@@ -501,77 +501,91 @@ class AplicarevaluacionController extends Controller {
         foreach ($periodosor as $value) {
             $periodosf[$value->id] = $value->anio . " - " . $value->periodo . " --> " . $value->TipoPeriodo->descripcion;
         }
+        $quienes = null;
+        foreach ($docente as $key => $value) {
+            $pares = \App\Asignarpar::where('docentea', $key)->get();
+            if (count($pares) > 0) {
+                foreach ($pares as $p) {
+                    $doc = Docenteacademico::find($p->docenteacademico_pege);
+                    $quienes["PAR_".$doc->pege] = "PAR ACADÉMICO  -  " . $doc->personanatural->primer_nombre . " " . $doc->personanatural->segundo_nombre . " " . $doc->personanatural->primer_apellido . " " . $doc->personanatural->segundo_apellido;
+                }
+            }
+            $quienes["AUTO_".$key] = "AUTO-EVALUACIÓN  -  " . $value;
+            $jefes = Jefedepartamento::where('docenteacademico_pege', $key)->get();
+            if (count($jefes) > 0) {
+                foreach ($jefes as $f) {
+                    $doc = Docenteacademico::find($f->docentejefe);
+                    $quienes["JEFE_".$doc->pege] = "JEFE DEPARTAMENTO  -  " . $doc->personanatural->primer_nombre . " " . $doc->personanatural->segundo_nombre . " " . $doc->personanatural->primer_apellido . " " . $doc->personanatural->segundo_apellido;
+                }
+            }
+        }
         return view('evaluacion_academica.aplicar_evaluacion.docenteinicio')
                         ->with('location', 'menu-evaluacion-auto-hetero')
                         ->with('docente', $docente)
-                        ->with('periodos', $periodosf);
+                        ->with('periodos', $periodosf)
+                        ->with('quienes', $quienes);
     }
 
     /*
      * verifica si hay fechas de aplicacion para el periodo seleccionado
      */
 
-    public function docenteconsutarfecha($per) {
+    public function docenteconsutarfecha($per, $dq, $da, $ev = null) {
         $fecha = Fechaaplicacionevaluacion::where('periodoacademico_id', $per)->first();
         if ($fecha != null) {
             $hoy = date('Y-m-j');
+            $doca=explode("_",$da);
             if (strtotime($hoy) >= strtotime($fecha->fechainicio) && strtotime($hoy) <= strtotime($fecha->fechafin)) {
-                $u = Auth::user();
-                $p = null;
-                $p = Persona::where('numero_documento', $u->identificacion)->first();
-                if ($p != null) {
-                    $d = Docenteacademico::find($p->id);
-                    if ($d != null) {
-                        $tipo = Docenteexamen::where('docenteacademico_pege', $d->pege)->first();
-                        $aut = null;
-                        if ($tipo != null) {
-                            if ($tipo->tipo == 'PLANTA') {
-                                $aut = Autorizarevaluacion::where([['periodoacademico_id', $per], ['rol', 'DOCENTE DE PLANTA']])->first();
-                            } else {
-                                $aut = Autorizarevaluacion::where([['periodoacademico_id', $per], ['rol', 'DOCENTE CATEDRATICO']])->first();
-                            }
-                        } else {
-                            flash('No hay formulario de evaluación definido para el período y el docente indicado')->error();
-                            return redirect()->route('admin.evaluacionautohetero');
-                        }
-                        if ($aut == null) {
-                            flash('No hay formulario de evaluación definido para el período y el docente indicado')->error();
-                            return redirect()->route('admin.evaluacionautohetero');
-                        }
-                        $e = Evaluacionaah::find($aut->evaluacionaah_id);
-                        $eval = Aplicarevaluacion::where([['docente_pegea', $d->pege], ['docente_pegeq', $d->pege], ['periodoacademico_id', $per], ['evaluacionaah_id', $e->id]])->first();
-                        if ($eval == null) {
-                            $periodo = Periodoacademico::find($per);
-                            $pn = Personanatural::find($d->pege);
-                            $e->evaluacionindicadors;
-                            $evals = Valoracionevalucionacademica::all();
-                            $nombredoc = $pn->primer_nombre . " " . $pn->segundo_nombre . " " . $pn->primer_apellido . " " . $pn->segundo_apellido;
-                            return view('evaluacion_academica.aplicar_evaluacion.docenterealizarexamen')
-                                            ->with('location', 'menu-evaluacion-auto-hetero')
-                                            ->with('docenteacademico', $d)
-                                            ->with('periodo', $periodo)
-                                            ->with('pn', $pn)
-                                            ->with('e', $e)
-                                            ->with('eval', $evals)
-                                            ->with('nombredoc', $nombredoc);
-                        } else {
-                            flash('Ya realizó la evaluación para el período y el docente indicado')->error();
-                            return redirect()->route('admin.evaluacionautohetero');
-                        }
-                    } else {
-                        flash("El docente no pudo ser establecido.")->warning();
+                $d = Docenteacademico::find($dq);
+                if ($d != null) {
+                    // $tipo = Docenteexamen::where('docenteacademico_pege', $d->pege)->first();
+                    $aut = null;
+                    //if ($tipo != null) {
+                    $aut = Autorizarevaluacion::where([['periodoacademico_id', $per], ['rol', 'DOCENTE EN COMISION']])->get();
+//                        } else {
+//                            flash('No hay formulario de evaluación definido para el período y el docente indicado')->error();
+//                            return redirect()->route('admin.evaluacionautohetero');
+//                        }
+                    if ($aut == null) {
+                        flash('No hay formulario de evaluación definido para el período y el docente indicado 1')->error();
                         return redirect()->route('admin.evaluacionautohetero');
                     }
+                    $e = null;
+                    $e = Evaluacionaah::find($ev);
+                    //$eval = Aplicarevaluacion::where([['docente_pegea', $d->pege], ['docente_pegeq', $d->pege], ['periodoacademico_id', $per], ['evaluacionaah_id', $e->id]])->first();
+                    //if ($eval == null) {
+                    $periodo = Periodoacademico::find($per);
+                    $pn = $d->Personanatural;
+                    if ($e != null) {
+                        $e->evaluacionindicadors;
+                    }
+                    $evals = Valoracionevalucionacademica::all();
+                    $pn = $d->personanatural;
+                    $nombredoc = $pn->primer_nombre . " " . $pn->segundo_nombre . " " . $pn->primer_apellido . " " . $pn->segundo_apellido;
+                    //dd($e);
+                    return view('evaluacion_academica.aplicar_evaluacion.docenterealizarexamen')
+                                    ->with('location', 'menu-evaluacion-auto-hetero')
+                                    ->with('docenteacademico', $d)
+                                    ->with('periodo', $periodo)
+                                    ->with('pn', $pn)
+                                    ->with('e', $e)
+                                    ->with('eval', $evals)
+                                    ->with('nombredoc', $nombredoc)
+                                    ->with('docentea', $da);
+//                    } else {
+//                        flash('Ya realizó la evaluación para el período y el docente indicado')->error();
+//                        return redirect()->route('admin.evaluacionautohetero');
+//                    }
                 } else {
-                    flash("La persona no pudo ser establecida!")->warning();
+                    flash("El docente no pudo ser establecido.")->warning();
                     return redirect()->route('admin.evaluacionautohetero');
                 }
             } else {
-                flash("No hay aplicación de evaluación academica en esta fecha!")->warning();
+                flash("No hay aplicación de evaluación academica en esta fecha 2!")->warning();
                 return redirect()->route('admin.evaluacionautohetero');
             }
         } else {
-            flash("No hay fecha de aplicación de evaluccioón academica par el periodo seleccionado!")->warning();
+            flash("No hay fecha de aplicación de evaluccioón academica par el periodo seleccionado 3!")->warning();
             return redirect()->route('admin.evaluacionautohetero');
         }
     }
@@ -590,12 +604,13 @@ class AplicarevaluacionController extends Controller {
             $var = "indicador_" . $i->id;
             $ii->valor = $request->$var;
             $indicadores[] = $ii;
-            if ($ii->valor < 0 || $ii->valor > 5) {
-                flash('La valoración debe estar entre 0 y 5.')->error();
+            if ($ii->valor < 10 || $ii->valor > 100) {
+                flash('La valoración debe estar entre 0 y 100.')->error();
                 return redirect()->route('aplicaciondocente.inicio');
             }
         }
         if (count($indicadores) > 0) {
+            dd($ae);
             if ($ae->save()) {
                 $aud = new Auditoriaevaluaciona();
                 $u = Auth::user();

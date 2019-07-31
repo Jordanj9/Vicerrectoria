@@ -71,4 +71,8 @@ class Docenteacademico extends Model {
         return $this->hasMany('App\Docenteexamen');
     }
 
+    public function jefedepartamento() {
+        return $this->hasMany('App\Jefedepartamento');
+    }
+
 }

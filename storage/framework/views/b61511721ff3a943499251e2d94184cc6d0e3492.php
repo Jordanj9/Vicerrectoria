@@ -1,11 +1,10 @@
-@extends('layouts.admin')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="panel box-shadow-none content-header">
     <div class="panel-body">
         <div class="col-md-12">
             <h3 class="animated fadeInLeft">Evaluación Académica - Aplicación Docente</h3>
             <p class="animated fadeInDown">
-                <a href="{{route('inicio')}}">Inicio</a> <span class="fa-angle-right fa"></span><a href="{{route('admin.evaluacionautohetero')}}"> Módulo Evaluación Académica </a><span class="fa-angle-right fa"></span> Aplicación Docentes
+                <a href="<?php echo e(route('inicio')); ?>">Inicio</a> <span class="fa-angle-right fa"></span><a href="<?php echo e(route('admin.evaluacionautohetero')); ?>"> Módulo Evaluación Académica </a><span class="fa-angle-right fa"></span> Aplicación Docentes
             </p>
         </div>
     </div>
@@ -19,8 +18,8 @@
     </div>
 </div>
 <div class="col-md-12">
-    @component('layouts.errors')
-    @endcomponent
+    <?php $__env->startComponent('layouts.errors'); ?>
+    <?php echo $__env->renderComponent(); ?>
 </div>
 <div class="col-md-12 top-20 padding-0">
     <div class="col-md-12">
@@ -30,15 +29,18 @@
                     <div class="form-group">
                         <div class="col-sm-3">
                             <label class="control-label text-right">Periodo Académico</label>
-                            {!! Form::select('periodoacademico_id',$periodos,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'periodoacademico_id']) !!}
+                            <?php echo Form::select('periodoacademico_id',$periodos,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'periodoacademico_id']); ?>
+
                         </div>
                         <div class="col-sm-3">
                             <label class="control-label text-right">Quién Evalúa?</label>
-                            {!! Form::select('docenteq',$docente,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'docenteq']) !!}
+                            <?php echo Form::select('docenteq',$docente,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'docenteq']); ?>
+
                         </div>
                         <div class="col-sm-3">
                             <label class="control-label text-right">A Quién Evalúa?</label>
-                            {!! Form::select('docentea',$quienes,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'docentea']) !!}
+                            <?php echo Form::select('docentea',$quienes,null,['class'=>'form-control','placeholder'=>'-- Seleccione una opción --','required','id'=>'docentea']); ?>
+
                         </div>
                         <div class="col-md-3">
                             <button class="btn btn-sm btn-success" onclick="ir()">Continuar</button>
@@ -49,8 +51,8 @@
         </div>
     </div>
 </div>
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#tabla').DataTable();
@@ -68,4 +70,6 @@
     }
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

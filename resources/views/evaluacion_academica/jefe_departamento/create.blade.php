@@ -3,9 +3,9 @@
 <div class="panel box-shadow-none content-header">
     <div class="panel-body">
         <div class="col-md-12">
-            <h3 class="animated fadeInLeft">Evaluación Académica - Gestión de Encargados de Programa</h3>
+            <h3 class="animated fadeInLeft">Evaluación Académica - Asignar Jefe</h3>
             <p class="animated fadeInDown">
-                <a href="{{route('inicio')}}">Inicio</a> <span class="fa-angle-right fa"></span><a href="{{route('admin.evaluacionautohetero')}}"> Módulo Evaluación Académica </a><span class="fa-angle-right fa"></span><a href="{{route('jefedepartamento.index')}}">Gestión de Encargados de Programa </a> <span class="fa-angle-right fa"></span> Crear
+                <a href="{{route('inicio')}}">Inicio</a> <span class="fa-angle-right fa"></span><a href="{{route('admin.evaluacionautohetero')}}"> Módulo Evaluación Académica </a><span class="fa-angle-right fa"></span><a href="{{route('jefedepartamento.index')}}">Asignar Jefe </a> <span class="fa-angle-right fa"></span> Crear
             </p>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <h3>Detalles
             <button type="button" class="close pull-right" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
         </h3>
-        <p>Esta funcionalidad permite al usuario gestionar la información referente a los Encargados de Programa.</p>
+        <p>Esta funcionalidad permite al usuario asignar un jefe a un docente.</p>
     </div>
 </div>
 <div class="col-md-12">
@@ -29,7 +29,7 @@
                 <h4>Datos del Encargado de Programa</h4>
             </div>
             <div class="panel-body" style="padding-bottom:30px;">
-                <div class="col-md-12" style="margin-top: 20px;">
+<!--                <div class="col-md-12" style="margin-top: 20px;">
                     <div class="form-group">
                         <div class="col-md-8">
                             {!! Form::text('id',null,['class'=>'form-control col-md-7 col-xs-12','placeholder'=>'Escriba la identificación a consultar','id'=>'id']) !!}
@@ -38,16 +38,18 @@
                             <button type="button" class="btn btn-primary btn-sm btn-block" onclick="getPersona()">Traer Persona</button>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="col-md-12">
                     {!! Form::open(['route'=>'jefedepartamento.store','method'=>'POST','class'=>'form-horizontal form-label-left'])!!}
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label class="control-label">Seleccione Persona Natural</label>
-                            <select id='personanatural_id' class='form-control' onchange="mostrar()" required='required' name='personanatural_id'></select>
+                            {!! Form::label('docentejefe', 'Seleccione el Jefe', ['class' => 'control-label'])!!}
+                            {!! Form::select('docentejefe',$docentes,null,['class'=>'form-control chosen-select','placeholder'=>'-- Seleccione una opción --','required','id'=>'docentejefe']) !!}
+<!--                          <label class="control-label">Seleccione Persona Natural</label>
+                            <select id='personanatural_id' class='form-control' onchange="mostrar()" required='required' name='personanatural_id'></select>-->
                         </div>
                     </div>
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <div class="col-md-4">
                             <label class="control-label">Identificación del Encargado de Programa</label>
                             {!! Form::text('ident',null,['class'=>'form-control','placeholder'=>'Identificación de la persona','required','id'=>'ident']) !!}
@@ -56,15 +58,11 @@
                             <label class="control-label">Futuro Encargado de Programa</label>
                             {!! Form::text('persona',null,['class'=>'form-control','placeholder'=>'Persona natural','id'=>'persona']) !!}
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
-                        <div class="col-md-6">
-                            {!! Form::label('facultad_id', 'Facultad', ['class' => 'control-label'])!!}
-                            {!! Form::select('facultad_id',$facultad,null,['class'=>'form-control chosen-select','placeholder'=>'-- Seleccione una opción --','required','id'=>'facultad_id','onchange'=>'getDepartamentos()']) !!}
-                        </div>
-                        <div class="col-md-6">
-                            {!! Form::label('departamento_id', 'Departamento', ['class' => 'control-label'])!!}
-                            {!! Form::select('departamento_id',[],null,['class'=>'form-control chosen-select','placeholder'=>'-- Seleccione una opción --','required','id'=>'departamento_id']) !!}
+                        <div class="col-md-12">
+                            {!! Form::label('docenteacademico_pege', 'Seleccione el Docente', ['class' => 'control-label'])!!}
+                            {!! Form::select('docenteacademico_pege',$docentes,null,['class'=>'form-control chosen-select','placeholder'=>'-- Seleccione una opción --','required','id'=>'docenteacademico']) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,7 +94,7 @@
     $(document).ready(function () {
 
     });
-
+    $(".chosen-select").chosen({});
 
     var vect = null;
 

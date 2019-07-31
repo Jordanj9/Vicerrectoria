@@ -12,7 +12,7 @@ class Jefedepartamento extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'fechainicio', 'fechafin', 'personanatural_id', 'departamento_id', 'created_at', 'updated_at'
+        'id', 'fechainicio', 'fechafin', 'docentejefe', 'docenteacademico_pege', 'created_at', 'updated_at'
     ];
 
     /**
@@ -24,12 +24,8 @@ class Jefedepartamento extends Model {
             //
     ];
 
-    public function personanatural() {
-        return $this->belongsTo('App\Personanatural');
-    }
-
-    public function departamento() {
-        return $this->belongsTo('App\Departamento');
+    public function docenteacademico() {
+        return $this->belongsTo('App\Docenteacademico');
     }
 
     public function aplicarevaluacions() {

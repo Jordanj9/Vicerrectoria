@@ -32,8 +32,4 @@ class Departamento extends Model {
         return $this->hasMany('App\Personanatural');
     }
 
-    public function jefedepartamentos() {
-        return $this->hasMany('App\Jefedepartamento');
-    }
-
 }

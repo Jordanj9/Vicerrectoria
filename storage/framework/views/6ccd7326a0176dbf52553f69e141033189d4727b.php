@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="control-label">¿A Quién Aplica?</label>
-                        <?php echo Form::select('rol',['JEFE'=>'JEFE','DOCENTE'=>'DOCENTE','PARES'=>'PARES'],null,['class'=>'form-control chosen-select','required','id'=>'rol']); ?>
+                        <?php echo Form::select('rol',['JEFE'=>'JEFE','DOCENTE EN COMISION'=>'DOCENTE EN COMISION','VICERRECTOR'=>'VICERRECTOR','DECANO'=>'DECANO','RECTOR'=>'RECTOR','PARES'=>'PARES/COLABORADORES'],null,['class'=>'form-control chosen-select','required','id'=>'rol']); ?>
 
                     </div>
                     <div class="col-md-6">

@@ -436,194 +436,8 @@ Route::group(['middleware' => ['auth', 'cors'], 'prefix' => 'reportes'], functio
     Route::get('admisiones/{u}/{p}/{met}/{mod}/{n}/menu/inscritosxprograma/numericos', 'RepadmisionesController@inscritosxprograma_numericos')->name('admisiones.inscritosxprogramanumericos');
     Route::get('admisiones/{und}/{per}/{met}/{mod}/{ne}/{p}/{e}/{o}/{ec}/menu/inscritosxprograma/numericos/pdf', 'RepadmisionesController@inscritosxprograma_numericos_pdf');
     Route::get('admisiones/{und}/{per}/{met}/{mod}/{ne}/{p}/{e}/{o}/{ec}/menu/inscritosxprograma/numericos/excel', 'RepadmisionesController@inscritosxprograma_numericos_excel');
-    //LIQUIDACIONES
-    Route::resource('liquidaciones', 'RepliquidacionesController');
-    Route::get('liquidaciones/{u}/{p}/{met}/{mod}/{n}/menu', 'RepliquidacionesController@menu')->name('liquidaciones.menu');
-    Route::get('liquidaciones/{u}/{p}/{met}/{mod}/{n}/menu/matriculafinanciera/pdf', 'RepliquidacionesController@matriculafinanciera_pdf')->name('liquidaciones.matriculafinanciera');
-    Route::get('liquidaciones/{u}/{p}/{met}/{mod}/{n}/menu/liquidadoxunidad/pdf', 'RepliquidacionesController@liquidadoxunidad_pdf')->name('liquidaciones.liquidadoxunidad');
-    Route::get('liquidaciones/{u}/{p}/{met}/{mod}/{n}/menu/descuentosporprograma/pdf', 'RepliquidacionesController@descuentosporprograma_pdf')->name('liquidaciones.descuentosporprograma');
-    //DEMANDA DE MATERIAS
-    Route::get('repdemanda/porasg', 'RepdemandaController@porasignatura')->name('repdemanda.porasignatura');
-    Route::get('repdemanda/porasignatura/pdf/{und}/{per}', 'RepdemandaController@porasignatura_pdf')->name('repdemanda.porasignatura_pdf');
-    Route::get('repdemanda/por/pensum', 'RepdemandaController@porpensum')->name('repdemanda.porpensum');
-    Route::post('repdemanda/por/pensum/post', 'RepdemandaController@porpensum_pdf')->name('repdemanda.porpensum_pdf');
-    //RECURSOS FISICOS
-    Route::resource('recursosfisicos', 'ReprecursosfisicosController');
-    Route::get('recursosfisicos/{p}/ocupacionacademica/pdf', 'ReprecursosfisicosController@ocupacionacademica')->name('recursosfisicos.ocupacionacademica');
-    // MATRÍCULA ACADÉMICA
-    Route::resource('matricula', 'RepmatriculaacademicaController');
-    Route::get('matricula/porgenero/vista', 'RepmatriculaacademicaController@porgenero')->name('matricula.porgenero');
-    Route::get('matricula/{u}/{p}/{sex}/porgenero/pdf', 'RepmatriculaacademicaController@porgenero_pdf')->name('matricula.porgenero_pdf');
-    Route::get('matricula/{u}/{p}/{sex}/porgenero/excel', 'RepmatriculaacademicaController@porgenero_excel')->name('matricula.porgenero_excel');
-    Route::get('matricula/poredad/vista', 'RepmatriculaacademicaController@poredad')->name('matricula.poredad');
-    Route::get('matricula/{u}/{p}/{edada}/{edadb}/poredad/pdf', 'RepmatriculaacademicaController@poredad_pdf')->name('matricula.poredad_pdf');
-    Route::get('matricula/{u}/{p}/{edada}/{edadb}/poredad/excel', 'RepmatriculaacademicaController@poredad_excel')->name('matricula.poredad_excel');
-    Route::get('matricula/procedencia/vista', 'RepmatriculaacademicaController@procedencia')->name('matricula.procedencia');
-    Route::get('matricula/{u}/{p}/{ciudad}/procedencia/pdf', 'RepmatriculaacademicaController@procedencia_pdf')->name('matricula.procedencia_pdf');
-    Route::get('matricula/{u}/{p}/{ciudad}/procedencia/excel', 'RepmatriculaacademicaController@procedencia_excel')->name('matricula.procedencia_excel');
-    Route::get('matricula/periodo/vista', 'RepmatriculaacademicaController@periodo')->name('matricula.periodo');
-    Route::get('matricula/{u}/{p}/{tipo}/periodo/pdf', 'RepmatriculaacademicaController@periodo_pdf')->name('matricula.periodo_pdf');
-    Route::get('matricula/{u}/{p}/{tipo}/periodo/excel', 'RepmatriculaacademicaController@periodo_excel')->name('matricula.periodo_excel');
-    Route::get('matricula/cancelarsemestre/vista', 'RepmatriculaacademicaController@cancelarsemestre')->name('matricula.cancelarsemestre');
-    Route::get('matricula/{u}/{p}/cancelarsemestre/pdf', 'RepmatriculaacademicaController@cancelarsemestre_pdf')->name('matricula.cancelarsemestre_pdf');
-    Route::get('matricula/{u}/{p}/cancelarsemestre/excel', 'RepmatriculaacademicaController@cancelarsemestre_excel')->name('matricula.cancelarsemestre_excel');
-    Route::get('matricula/sinrenovacionm/vista', 'RepmatriculaacademicaController@sinrenovacionm')->name('matricula.sinrenovacionm');
-    Route::get('matricula/{up}/{u}/{p}/sinrenovacionm/pdf', 'RepmatriculaacademicaController@sinrenovacionm_pdf')->name('matricula.sinrenovacionm_pdf');
-    Route::get('matricula/{up}/{u}/{p}/sinrenovacionm/excel', 'RepmatriculaacademicaController@sinrenovacionm_excel')->name('matricula.sinrenovacionm_excel');
-    Route::get('matricula/matprimersemestre/vista', 'RepmatriculaacademicaController@matprimersemestre')->name('matricula.matprimersemestre');
-    Route::get('matricula/{up}/{u}/{p}/matprimersemestre/pdf', 'RepmatriculaacademicaController@matprimersemestre_pdf')->name('matricula.matprimersemestre_pdf');
-    Route::get('matricula/{up}/{u}/{p}/matprimersemestre/excel', 'RepmatriculaacademicaController@matprimersemestre_excel')->name('matricula.matprimersemestre_excel');
-    Route::get('matricula/ubicacionsemestral/vista', 'RepmatriculaacademicaController@ubicacionsemestral')->name('matricula.ubicacionsemestral');
-    Route::get('matricula/{up}/{u}/ubicacionsemestral/pdf', 'RepmatriculaacademicaController@ubicacionsemestral_pdf')->name('matricula.ubicacionsemestral_pdf');
-    Route::get('matricula/{up}/{u}/ubicacionsemestral/excel', 'RepmatriculaacademicaController@ubicacionsemestral_excel')->name('matricula.ubicacionsemestral_excel');
-    Route::get('matricula/unidadregional/vista', 'RepmatriculaacademicaController@unidadregional')->name('matricula.unidadregional');
-    Route::get('matricula/{und}/{per}/{tipo}/unidadregional/pdf', 'RepmatriculaacademicaController@unidadregional_pdf')->name('matricula.unidadregional_pdf');
-    Route::get('matricula/{uud}/{per}/{tipo}/unidadregional/excel', 'RepmatriculaacademicaController@unidadregional_excel')->name('matricula.unidadregional_excel');
-    Route::get('matricula/porprograma/vista', 'RepmatriculaacademicaController@porprograma')->name('matricula.porprograma');
-    Route::get('matricula/{pu}/{und}/{per}/{tipo}/porprograma/pdf', 'RepmatriculaacademicaController@porprograma_pdf')->name('matricula.porprograma_pdf');
-    Route::get('matricula/{pu}/{und}/{per}/{tipo}/porprograma/excel', 'RepmatriculaacademicaController@porprograma_excel')->name('matricula.porprograma_excel');
-    Route::get('matricula/consolidadomat/vista', 'RepmatriculaacademicaController@consolidadomat')->name('matricula.consolidadomat');
-    Route::get('matricula/{und}/{per}/{tipo}/consolidadomat/pdf', 'RepmatriculaacademicaController@consolidadomat_pdf')->name('matricula.consolidadomat_pdf');
-    Route::get('matricula/{und}/{per}/{tipo}/consolidadomat/excel', 'RepmatriculaacademicaController@consolidadomat_excel')->name('matricula.consolidadomat_excel');
-    Route::get('matricula/estudiantegeneral/vista', 'RepmatriculaacademicaController@estudiantegeneral')->name('matricula.estudiantegeneral');
-    Route::get('matricula/{und}/{per}/{tipo}/estudiantegeneral/pdf', 'RepmatriculaacademicaController@estudiantegeneral_pdf')->name('matricula.estudiantegeneral_pdf');
-    Route::get('matricula/{und}/{per}/{tipo}/estudiantegeneral/excel', 'RepmatriculaacademicaController@estudiantegeneral_excel')->name('matricula.estudiantegeneral_excel');
-    Route::get('matricula/cancelarmateria/vista', 'RepmatriculaacademicaController@cancelarmateria')->name('matricula.cancelarmateria');
-    Route::get('matricula/{und}/{per}/cancelarmateria/pdf', 'RepmatriculaacademicaController@cancelarmateria_pdf')->name('matricula.cancelarmateria_pdf');
-    Route::get('matricula/{und}/{per}/cancelarmateria/excel', 'RepmatriculaacademicaController@cancelarmateria_excel')->name('matricula.cancelarmateria_excel');
-    Route::get('matricula/estudiantexdocente/vista', 'RepmatriculaacademicaController@estudiantexdocente')->name('matricula.estudiantexdocente');
-    Route::get('matricula/{docenteund}/{per}/estudiantexdocente/pdf', 'RepmatriculaacademicaController@estudiantexdocente_pdf')->name('matricula.estudiantexdocente_pdf');
-    Route::get('matricula/{docenteund}/{per}/estudiantexdocente/excel', 'RepmatriculaacademicaController@estudiantexdocente_excel')->name('matricula.estudiantexdocente_excel');
-    Route::get('matricula/matxmateria/vista', 'RepmatriculaacademicaController@matxmateria')->name('matricula.matxmateria');
-    Route::get('matricula/{materia}/{per}/{und}/matxmateria/pdf', 'RepmatriculaacademicaController@matxmateria_pdf')->name('matricula.matxmateria_pdf');
-    Route::get('matricula/{materia}/{per}/{und}/matxmateria/excel', 'RepmatriculaacademicaController@matxmateria_excel')->name('matricula.matxmateria_excel');
-    Route::get('matricula/ofertamateria/vista', 'RepmatriculaacademicaController@ofertamateria')->name('matricula.ofertamateria');
-    Route::get('matricula/{und}/{per}/ofertamateria/pdf', 'RepmatriculaacademicaController@ofertamateria_pdf')->name('matricula.ofertamateria_pdf');
-    Route::get('matricula/{und}/{per}/ofertamateria/excel', 'RepmatriculaacademicaController@ofertamateria_excel')->name('matricula.ofertamateria_excel');
-    Route::get('matricula/matriculados/nuevos', 'RepmatriculaacademicaController@matriculadosnuevo_numericos')->name('matricula.nuevos');
-    Route::get('matricula/matriculados/numericos/todos', 'RepmatriculaacademicaController@matriculados_numericos')->name('matricula.matriculados_numericos');
-    Route::get('matricula/{programas}/{unidad}/{periodo}/{me}/{ne}/{mo}/reportesnumericos/nuevos/pdf', 'RepmatriculaacademicaController@matriculadosnuevo_numericos_pdf')->name('matricula.matriculadosnuevo_numericos_pdf');
-    Route::get('matricula/{programas}/{unidad}/{periodo}/{me}/{ne}/{mo}/porperiodo/pdf', 'RepmatriculaacademicaController@matriculados_numericos_pdf')->name('matricula.matriculados_numericos_pdf');
-    Route::get('matricula/hojadevida/estudiante/vista', 'RepmatriculaacademicaController@hojadevida_estudiante')->name('matricula.hojadevidaest');
-    Route::get('matricula/{estpen}/hojadevidaest/pdf', 'RepmatriculaacademicaController@hojadevida_estudiante_pdf')->name('matricula.hojadevidaest_pdf');
-    //PROCESOS SNIES Y SPADIES
-    Route::resource('snies', 'SniesController');
-    Route::get('snies/apoyosfinancieros/inicio', 'SniesController@apoyosfinancieros')->name('snies.apoyosfinancieros');
-    Route::get('snies/apoyosfinancieros/inicio/{periodo}/{actual}/pdf', 'SniesController@apoyosfinancieros_pdf')->name('snies.apoyosfinancierospdf');
-    Route::get('snies/apoyosfinancieros/inicio/{periodo}/{actual}/excel', 'SniesController@apoyosfinancieros_excel')->name('snies.apoyosfinancierosexcel');
-    Route::get('snies/materiasmatriculadas/inicio', 'SniesController@materiasmatriculadas')->name('snies.materiasmatriculadas');
-    Route::get('snies/materiasmatriculadas/inicio/{periodo}/{actual}/pdf', 'SniesController@materiasmatriculadas_pdf')->name('snies.materiasmatriculadaspdf');
-    Route::get('snies/materiasmatriculadas/inicio/{periodo}/{actual}/excel', 'SniesController@materiasmatriculadas_excel')->name('snies.materiasmatriculadasexcel');
-    Route::get('snies/matriculados/inicio', 'SniesController@matriculados')->name('snies.matriculados');
-    Route::get('snies/matriculados/inicio/{periodo}/{actual}/pdf', 'SniesController@matriculados_pdf')->name('snies.matriculadospdf');
-    Route::get('snies/matriculados/inicio/{periodo}/{actual}/excel', 'SniesController@matriculados_excel')->name('snies.matriculadosexcel');
-    // CALIFICACIONES
-    Route::resource('calificaciones', 'RepcalificacionesController');
-    Route::get('calificaciones/promestprog/vista', 'RepcalificacionesController@promestprog')->name('calificaciones.promestprog');
-    Route::get('calificaciones/{u}/{p}/{progund}/promestprog/pdf', 'RepcalificacionesController@promestprog_pdf')->name('calificaciones.promestprog_pdf');
-    Route::get('calificaciones/{u}/{p}/{progund}/promestprog/excel', 'RepcalificacionesController@promestprog_excel')->name('calificaciones.promestprog_excel');
-    Route::get('calificaciones/promestprog/vista/actuales', 'RepcalificacionesController@promestproga')->name('calificaciones.promestproga');
-    Route::get('calificaciones/{u}/{p}/{progund}/promestprog/pdf/actuales', 'RepcalificacionesController@promestproga_pdf')->name('calificaciones.promestproga_pdf');
-    Route::get('calificaciones/ponderacionacademica/vista', 'RepcalificacionesController@ponderacionacademica')->name('calificaciones.ponderacionacademica');
-    Route::get('calificaciones/{progund}/{und}/{per}/{tipo}/ponderacionacademica/pdf', 'RepcalificacionesController@ponderacionacademica_pdf')->name('calificaciones.ponderacionacademica_pdf');
-    Route::get('calificaciones/{progund}/{und}/{per}/{tipo}/ponderacionacademica/excel', 'RepcalificacionesController@ponderacionacademica_excel')->name('calificaciones.ponderacionacademica_excel');
-    Route::get('calificaciones/mejorpromedio/vista', 'RepcalificacionesController@mejorpromedio')->name('calificaciones.mejorpromedio');
-    Route::get('calificaciones/{u}/{p}/{progund}/mejorpromedio/pdf', 'RepcalificacionesController@mejorpromedio_pdf')->name('calificaciones.mejorpromedio_pdf');
-    Route::get('calificaciones/{u}/{p}/{progund}/mejorpromedio/excel', 'RepcalificacionesController@mejorpromedio_excel')->name('calificaciones.mejorpromedio_excel');
-    Route::get('calificaciones/mejorpromedioperiodo/vista', 'RepcalificacionesController@mejorpromedioperiodo')->name('calificaciones.mejorpromedioperiodo');
-    Route::get('calificaciones/{u}/{p}/{progund}/mejorpromedioperiodo/pdf', 'RepcalificacionesController@mejorpromedioperiodo_pdf')->name('calificaciones.mejorpromedioperiodo_pdf');
-    Route::get('calificaciones/{u}/{p}/{progund}/mejorpromedioperiodo/excel', 'RepcalificacionesController@mejorpromedioperiodo_excel')->name('calificaciones.mejorpromedioperiodo_excel');
-    Route::get('calificaciones/aprobadoreprobado/vista', 'RepcalificacionesController@aprobadoreprobado')->name('calificaciones.aprobadoreprobado');
-    Route::get('calificaciones/{u}/{p}/{progund}/aprobadoreprobado/pdf', 'RepcalificacionesController@aprobadoreprobado_pdf')->name('calificaciones.aprobadoreprobado_pdf');
-    Route::get('calificaciones/{u}/{p}/{progund}/aprobadoreprobado/excel', 'RepcalificacionesController@aprobadoreprobado_excel')->name('calificaciones.aprobadoreprobado_excel');
-    Route::get('calificaciones/promedioxgrupo/vista', 'RepcalificacionesController@promedioxgrupo')->name('calificaciones.promedioxgrupo');
-    Route::get('calificaciones/{pensum}/promedioxgrupo/getmaterias', 'RepcalificacionesController@getmaterias')->name('calificaciones.getmaterias');
-    Route::get('calificaciones/{materia}/promedioxgrupo/getgrupos', 'RepcalificacionesController@getgrupos')->name('calificaciones.getgrupos');
-    Route::get('calificaciones/{u}/{p}/{pro}/{grupo}/promedioxgrupo/pdf', 'RepcalificacionesController@promedioxgrupo_pdf')->name('calificaciones.promedioxgrupo_pdf');
-    Route::get('calificaciones/{u}/{p}/{pro}/{grupo}/promedioxgrupo/excel', 'RepcalificacionesController@promedioxgrupo_excel')->name('calificaciones.promedioxgrupo_excel');
-    Route::get('calificaciones/registroextendido/vista', 'RepcalificacionesController@registroextendido')->name('calificaciones.registroextendido');
-    Route::get('calificaciones/{ep}/registroextendido/pdf', 'RepcalificacionesController@registroextendido_pdf')->name('calificaciones.registroextendido_pdf');
-    Route::get('calificaciones/masivocalificaciones/vista', 'RepcalificacionesController@masivocalificaciones')->name('calificaciones.masivocalificaciones');
-    Route::get('calificaciones/{u}/{p}/masivocalificaciones/pdf', 'RepcalificacionesController@masivocalificaciones_pdf')->name('calificaciones.masivocalificaciones_pdf');
-    Route::get('calificaciones/{u}/{p}/masivocalificaciones/excel', 'RepcalificacionesController@masivocalificaciones_excel')->name('calificaciones.masivocalificaciones_excel');
-    Route::get('calificaciones/notasparciales/vista', 'RepcalificacionesController@notasparciales')->name('calificaciones.notasparciales');
-    Route::get('calificaciones/{ep}/notasparciales/pdf', 'RepcalificacionesController@notasparciales_pdf')->name('calificaciones.notasparciales_pdf');
-    //SANCIONES
-    Route::resource('sanciones', 'RepsancionesController');
-    Route::get('sanciones/porestudiante/vista', 'RepsancionesController@porestudiante')->name('sanciones.porestudiante');
-    Route::get('sanciones/{est}/porestudiante/pdf', 'RepsancionesController@porestudiante_pdf')->name('sanciones.porestudiante_pdf');
-    Route::get('sanciones/{est}/porestudiante/excel', 'RepsancionesController@porestudiante_excel')->name('sanciones.porestudiante_excel');
-    Route::get('sanciones/porprograma/vista', 'RepsancionesController@porprograma')->name('sanciones.porprograma');
-    Route::get('sanciones/{u}/{pensum}/{progund}/porprograma/pdf', 'RepsancionesController@porprograma_pdf')->name('sanciones.porprograma_pdf');
-    Route::get('sanciones/{u}/{pensum}/{progund}/porprograma/excel', 'RepsancionesController@porprograma_excel')->name('sanciones.porprograma_excel');
-    //CARGA ADMINISTRATIVA
-    Route::resource('cargaadmin', 'RepcargaadminController');
-    Route::get('cargaadmin/docacademica/vista', 'RepcargaadminController@docacademica')->name('cargaadmin.docacademica');
-    Route::get('cargaadmin/{unidad}/docacademica/pdf', 'RepcargaadminController@docacademica_pdf')->name('cargaadmin.docacademica_pdf');
-    Route::get('cargaadmin/{unidad}/docacademica/excel', 'RepcargaadminController@docacademica_excel')->name('cargaadmin.docacademica_excel');
-    Route::get('cargaadmin/docregional/vista', 'RepcargaadminController@docregional')->name('cargaadmin.docregional');
-    Route::get('cargaadmin/{unidad}/docregional/pdf', 'RepcargaadminController@docregional_pdf')->name('cargaadmin.docregional_pdf');
-    Route::get('cargaadmin/{unidad}/docregional/excel', 'RepcargaadminController@docregional_excel')->name('cargaadmin.docregional_excel');
-    Route::get('cargaadmin/catescalafon/vista', 'RepcargaadminController@catescalafon')->name('cargaadmin.catescalafon');
-    Route::get('cargaadmin/{cat}/catescalafon/pdf', 'RepcargaadminController@catescalafon_pdf')->name('cargaadmin.catescalafon_pdf');
-    Route::get('cargaadmin/{cat}/catescalafon/excel', 'RepcargaadminController@catescalafon_excel')->name('cargaadmin.catescalafon_excel');
-    Route::get('cargaadmin/cargaacademica/vista', 'RepcargaadminController@cargaacademica')->name('cargaadmin.cargaacademica');
-    Route::get('cargaadmin/{unidad}/{periodo}/{docunidad}/cargaacademica/pdf', 'RepcargaadminController@cargaacademica_pdf')->name('cargaadmin.cargaacademica_pdf');
-    Route::get('cargaadmin/{unidad}/{periodo}/{docunidad}/cargaacademica/excel', 'RepcargaadminController@cargaacademica_excel')->name('cargaadmin.cargaacademica_excel');
-    //ESTRUCTURA CURRICUAR
-    Route::resource('estructura', 'RepestructuracurricularController');
-    Route::get('estructura/listprograma/pdf', 'RepestructuracurricularController@listprograma_pdf')->name('estructura.listprograma_pdf');
-    Route::get('estructura/programaxunidad/vista', 'RepestructuracurricularController@programaxunidad')->name('estructura.programaxunidad');
-    Route::get('estructura/{unidad}/programaxunidad/pdf', 'RepestructuracurricularController@programaxunidad_pdf')->name('estructura.programaxunidad_pdf');
-    Route::get('estructura/{unidad}/programaxunidad/excel', 'RepestructuracurricularController@programaxunidad_excel')->name('estructura.programaxunidad_excel');
-    Route::get('estructura/programaxunda/vista', 'RepestructuracurricularController@programaxunda')->name('estructura.programaxunda');
-    Route::get('estructura/{unda}/programaxunda/pdf', 'RepestructuracurricularController@programaxunda_pdf')->name('estructura.programaxunda_pdf');
-    Route::get('estructura/{unda}/programaxunda/excel', 'RepestructuracurricularController@programaxunda_excel')->name('estructura.programaxunda_excel');
-    Route::get('estructura/listmaterias/pdf', 'RepestructuracurricularController@listmaterias_pdf')->name('estructura.listmaterias_pdf');
-    Route::get('estructura/matunidad/vista', 'RepestructuracurricularController@matunidad')->name('estructura.matunidad');
-    Route::get('estructura/{unda}/matunidad/pdf', 'RepestructuracurricularController@matunidad_pdf')->name('estructura.matunidad_pdf');
-    Route::get('estructura/{unda}/matunidad/excel', 'RepestructuracurricularController@matunidad_excel')->name('estructura.matunidad_excel');
-    Route::get('estructura/contenidomat/vista', 'RepestructuracurricularController@contenidomat')->name('estructura.contenidomat');
-    Route::get('estructura/{materia}/contenidomat/pdf', 'RepestructuracurricularController@contenidomat_pdf')->name('estructura.contenidomat_pdf');
-    Route::get('estructura/{materia}/contenidomat/excel', 'RepestructuracurricularController@contenidomat_excel')->name('estructura.contenidomat_excel');
-    Route::get('estructura/fundamentopro/vista', 'RepestructuracurricularController@fundamentopro')->name('estructura.fundamentopro');
-    Route::get('estructura/{prog}/{unidad}/fundamentopro/pdf', 'RepestructuracurricularController@fundamentopro_pdf')->name('estructura.fundamentopro_pdf');
-    Route::get('estructura/{prog}/{unidad}/fundamentopro/excel', 'RepestructuracurricularController@fundamentopro_excel')->name('estructura.fundamentopro_excel');
-    Route::get('estructura/hojavidapro/vista', 'RepestructuracurricularController@hojavidapro')->name('estructura.hojavidapro');
-    Route::get('estructura/{prog}/hojavidapro/pdf', 'RepestructuracurricularController@hojavidapro_pdf')->name('estructura.hojavidapro_pdf');
-    Route::get('estructura/reportepensum/pdf', 'RepestructuracurricularController@reportepensum_pdf')->name('estructura.reportepensum_pdf');
-    //DEUDAS
-    Route::resource('deudas', 'RepdeudasController');
-    Route::get('deudas/deudores/vista', 'RepdeudasController@deudores')->name('deudas.deudores');
-    Route::get('deudas/{per}/{unidad}/deudores/pdf', 'RepdeudasController@deudores_pdf')->name('deudas.deudores_pdf');
-    Route::get('deudas/{per}/{unidad}/deudores/excel', 'RepdeudasController@deudores_excel')->name('deudas.deudores_excel');
-    Route::get('deudas/porestado/vista', 'RepdeudasController@porestado')->name('deudas.porestado');
-    Route::get('deudas/{estado}/porestado/pdf', 'RepdeudasController@porestado_pdf')->name('deudas.porestado_pdf');
-    Route::get('deudas/{estado}/porestado/excel', 'RepdeudasController@porestado_excel')->name('deudas.porestado_excel');
-    Route::get('deudas/global/pdf', 'RepdeudasController@global_pdf')->name('deudas.global_pdf');
-    //RECURSOS FISICOS
-    Route::resource('recursos', 'ReprecursosfController');
-    Route::get('recursos/portipo/vista', 'ReprecursosfController@portipo')->name('recursos.portipo');
-    Route::get('recursos/portipo/{localidad}/{tipoef}/pdf', 'ReprecursosfController@portipo_pdf')->name('recursos.portipo_pdf');
-    Route::get('recursos/portipo/{localidad}/{tipoef}/excel', 'ReprecursosfController@portipo_excel')->name('recursos.portipo_excel');
-    Route::get('recursos/porunidad/vista', 'ReprecursosfController@porunidad')->name('recursos.porunidad');
-    Route::get('recursos/porunidad/{unidad}/pdf', 'ReprecursosfController@porunidad_pdf')->name('recursos.porunidad_pdf');
-    Route::get('recursos/porunidad/{unidad}/excel', 'ReprecursosfController@porunidad_excel')->name('recursos.porunidad_excel');
-    Route::get('recursos/porespacio/vista', 'ReprecursosfController@porespacio')->name('recursos.porespacio');
-    Route::get('recursos/porespacio/{tiporf}/{espacio}/pdf', 'ReprecursosfController@porespacio_pdf')->name('recursos.porespacio_pdf');
-    Route::get('recursos/porespacio/{tiporf}/{espacio}/excel', 'ReprecursosfController@porespacio_excel')->name('recursos.porespacio_excel');
-    Route::get('recursos/ocupacion/vista', 'ReprecursosfController@ocupacion')->name('recursos.ocupacion');
-    Route::get('recursos/ocupacion/{periodo}/pdf', 'ReprecursosfController@ocupacion_pdf')->name('recursos.ocupacion_pdf');
-    Route::get('recursos/ocupacion/{periodo}/excel', 'ReprecursosfController@ocupacion_excel')->name('recursos.ocupacion_excel');
-    Route::get('recursos/disponibilidad/vista', 'ReprecursosfController@disponibilidad')->name('recursos.disponibilidad');
-    Route::get('recursos/disponibilidad/{periodo}/pdf', 'ReprecursosfController@disponibilidad_pdf')->name('recursos.disponibilidad_pdf');
-    //HORARIOS
-    Route::resource('horarios', 'RephorarioController');
-    Route::get('horarios/estudiante/vista', 'RephorarioController@horario')->name('horarios.horario');
-    //PROCESOS JOVENES EN ACCION
-    Route::resource('jea', 'JeaController');
-    Route::get('jea/matricula/inicio', 'JeaController@matricula')->name('jea.matricula');
-    Route::get('jea/matricula/inicio/{periodo}/{actual}/excel', 'JeaController@matricula_excel')->name('jea.matriculaexcel');
+    
+    
 });
 
 
@@ -722,10 +536,6 @@ Route::group(['middleware' => ['auth', 'cors'], 'prefix' => 'docente'], function
 //    Route::get('calificaciones/{gr}/{per}/listarestudiantes/calificaciones/planilla/pdf', 'CalificacionesdocenteController@planilla')->name('calificacionesdocente.planilla');
 });
 
-//GRUPO DE RUTAS PARA EL AULA VIRTUAL
-Route::group(['middleware' => ['auth', 'cors'], 'prefix' => 'aulavirtual'], function() {
-//   
-});
 
 
 
@@ -769,7 +579,7 @@ Route::group(['middleware' => ['auth', 'cors'], 'prefix' => 'evaluacionacademica
     Route::post('aplicacionjefe/inicio/evaluacion/academica/aplicar/enviar', 'AplicarevaluacionController@guardarevaluacionjefe')->name('aplicacionjefe.guardarevaluacionjefe');
     //APLICACION DOCENTE
     Route::get('aplicaciondocente/inicio', 'AplicarevaluacionController@docenteindex')->name('aplicaciondocente.inicio');
-    Route::get('aplicaciondocente/inicio/{periodo}/ir', 'AplicarevaluacionController@docenteconsutarfecha')->name('aplicaciondocente.ir');
+    Route::get('aplicaciondocente/inicio/{periodo}/{dq}/{da}/{ev}/ir', 'AplicarevaluacionController@docenteconsutarfecha')->name('aplicaciondocente.ir');
     Route::get('aplicaciondocente/{docenteacademico}/{unidad}/{periodo}/{materia}/continuar', 'AplicarevaluacionController@continuardoc')->name('aplicaciondocente.continuar');
     Route::post('aplicaciondocente/inicio/autoevaluacion/academica/enviar', 'AplicarevaluacionController@guardarevaluaciondocente')->name('aplicaciondocente.guardarevaluaciondocente');
     //RESULTADOS EVALUACION ACADEMICA
